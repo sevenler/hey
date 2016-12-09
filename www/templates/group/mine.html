@@ -1,0 +1,10 @@
+
+<a href='/'> all groups </a>
+
+{% for group in groups %}
+title: {{ group['title'] }}
+    desc: {{ group['description'] }}
+    joined/max: {{ group['joined_partner_number'] }} / {{ group['max_partner_number'] }}
+    partners: {{ group['created_user_id'] }}
+    </br>
+{% end %}

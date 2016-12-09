@@ -1,0 +1,17 @@
+
+title: {{group['title']}} </br>
+description: {{group['description']}} </br>
+joined_partner_number: {{group['joined_partner_number']}} </br>
+max_partner_number: {{group['max_partner_number']}} </br></br></br>
+
+<form method='post' action='/group/{{ group['id'] }}/checkin'>
+    <input type="submit" value="Check In">
+</form>
+
+partners: 
+
+{% for partner in group['partners'] %}
+</br>
+ {{partner['name']}}
+ <img src='{{partner['avatar']}}' width=30 height=30 />
+{% end %}
