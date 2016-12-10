@@ -5,7 +5,7 @@ from core.models.contact import *
 from core.models.question import *
 from core.models.question_prestorage import *
 from core.models.tag import *
-from core.constant import DEBUG, DB_PATH
+from config import DEBUG, DB_PATH
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker

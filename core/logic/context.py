@@ -1,4 +1,4 @@
-from core.constant import DEFAULT_FETCH_QUESTION_WITH_USER_RANGE
+from config import DEFAULT_FETCH_QUESTION_WITH_USER_RANGE
 from core.logic.question import Question
 from core.logic.user import User
 from core.models import session
@@ -8,6 +8,9 @@ from core.models import QuestionPrestorage as QuestionPrestorageModel
 class Context(object):
     def __init__(self, user_id):
         self._user_id = user_id
+
+    def fetch_user(self, **kwargs):
+        return [user.info() for user in User.filter(**kwargs)]
 
     def fetch_nearly_question(self, **kwargs):
         return NearlyQuestionFetcher(user_id=self._user_id, **kwargs).fetch()

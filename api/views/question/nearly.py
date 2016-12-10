@@ -4,19 +4,12 @@ from api.views.base import BaseApiView
 from api.views.response import response
 
 
-class DetailView(BaseApiView):
-    def get(self, question_id):
+class NearlyView(BaseApiView):
+    def get(self):
         context = self.get_current_context()
-        #include_answer = self.get_argument('answer', True)
-        question_map_list = context.fetch_question(id=question_id)
-
-
-        question_map = question_map_list[0]
-        self._fetch_user_info(context, question_map, 'created_user_id', 'created_user')
-
-        question_map['answers'] = context.fetch_answer(question_id=question_id)
-        self._fetch_user_info(context, question_map['answers'], 'answer_user_id', 'answer_user')
-        return response(self, question_map)
+        question_map_list = context.fetch_nearly_question()
+        self._fetch_user_info(context, question_map_list, 'created_user_id', 'created_user')
+        return response(self, question_map_list)
 
     def _fetch_user_info(self, context, ob, foreign_key, replaced_key):
         user_id_set = set()
