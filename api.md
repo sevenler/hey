@@ -1,10 +1,14 @@
 #apis
 
-fetch nearly question ()
-question detail ()
-add a question ()
-add an answer ()
-agree answer ()
+fetch nearly question (https://github.com/sevenler/hey/blob/master/api.md#nearly_question)
+
+question detail (https://github.com/sevenler/hey/blob/master/api.md#question)
+
+add a question (https://github.com/sevenler/hey/blob/master/api.md#add_question)
+
+add an answer (https://github.com/sevenler/hey/blob/master/api.md#add_answer)
+
+agree answer (https://github.com/sevenler/hey/blob/master/api.md#agree_answer)
 
 
 ##nearly_question 
