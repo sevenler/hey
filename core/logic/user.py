@@ -7,11 +7,23 @@ class User(BaseObject):
     def __init__(self, pk, model=None):
         super(User, self).__init__(pk)
         self._model = model
-        self._last_gps_model = None
+	self._info = None
 
     def _lazy_load_user(self):
-        if self._model == None:
-            self._model = UserModel.filter_by(session=session, id=self._pk).first()
+	if self._info == None:
+	    if self._model == None:
+	        self._model = UserModel.filter_by(session=session, id=self._pk).first()
+
+		self._info = {
+		    'name': self._model.name,
+		    'avatar': self._model.avatar_url,
+		    'latitude': self._model.latitude,
+		    'longitude': self._model.longitude
+		}
+		if self._info['latitude'] == None:
+		    self._info['latitude'] = 0
+		if self._info['longitude'] == None:
+		    self._info['longitude'] = 0
 
     def info(self):
         self._lazy_load_user()
@@ -26,17 +38,17 @@ class User(BaseObject):
     @property
     def name(self):
         self._lazy_load_user()
-        return self._model.name
+        return self._info['name']
 
     @property
     def latitude(self):
         self._lazy_load_user()
-        return self._model.latitude
+        return self._info['latitude']
 
     @property
     def longitude(self):
         self._lazy_load_user()
-        return self._model.longitude
+        return self._info['longitude']
 
     @classmethod
     def sign_up(cls, **kwargs):
