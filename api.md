@@ -14,7 +14,7 @@ agree answer (https://github.com/sevenler/hey/blob/master/api.md#agree_answer)
 ##nearly_question 
 request:
 
-    http://localhost:80/question/nearly/
+    http://106.75.90.224:80/question/nearly/
 
 
 response:
@@ -54,7 +54,7 @@ response:
 ##question
 request:
     
-    http://localhost:80/question/<question_id>
+    http://106.75.90.224:80/question/<question_id>
 
 
 response:
@@ -107,7 +107,7 @@ response:
 
 request:
 
-    http://localhost:80/question/add/
+    http://106.75.90.224:80/question/add/
 
     data:
     {
@@ -140,7 +140,7 @@ response:
 
 request:
 
-    http://localhost:80/question/<question_id>/answer/add/
+    http://106.75.90.224:80/question/<question_id>/answer/add/
 
     data:
     {
@@ -162,7 +162,7 @@ response:
 
 request:
 
-    http://localhost:80/answer/<answer_id>/agree/
+    http://106.75.90.224:80/answer/<answer_id>/agree/
 
     data:
     {
